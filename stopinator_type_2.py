@@ -17,7 +17,7 @@ from datetime import datetime, timedelta
 def lambda_handler(event, context):
    
     # Provide regions here (eg ['us-west-2', 'ap-southeast-2'], or use [] for all regions
-    regions_to_check = ['ap-southeast-2']
+    regions_to_check = []
 
     # Check all regions?
     if not regions_to_check:
