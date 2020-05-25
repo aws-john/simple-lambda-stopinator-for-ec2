@@ -9,6 +9,7 @@ Add an 'Auto-Stop' tag to an instance to change behaviour, with a Value of:
 - 'Stop' to stop the instance (same as default)
 - 'Terminate' to terminate the instance (good for temporary instances)
 - 'Ignore' to skip-over the instance
+
 '''
 
 import boto3
@@ -34,9 +35,10 @@ def lambda_handler(event, context):
             action = 'stop' # Default action
             
             # Extract action from 'Auto-Stop' tag (if present)
-            for tag in instance.tags:
-                if tag['Key'].lower() == 'auto-stop':
-                    action = tag['Value'].lower()
+            if instance.tags != None:
+                for tag in instance.tags:
+                    if tag['Key'].lower() == 'auto-stop':
+                        action = tag['Value'].lower()
             
             if action == 'stop':
                 print(f'Stopping instance {instance.id}')
