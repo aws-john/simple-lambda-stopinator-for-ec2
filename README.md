@@ -6,6 +6,8 @@ They are "Simple" because all code is in one text file, so it is easy to paste i
 
 There are multiple stopinators available in this repository.
 
+For details of how they work, see this blog post: [Simple EC2 Stopinator in Lambda - DEV Community](https://dev.to/aws/simple-ec2-stopinator-in-lambda-5goj)
+
 ---
 
 ## Stopinator Type 1: Auto-Stop
