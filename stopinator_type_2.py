@@ -9,7 +9,7 @@ Tag Names (in priority order):
 - Notify-After: Send SNS notification if still running
   (For multiple notifications, use 'Notify-After1', 'Notify-After2', etc)
 
-Tag Value: Indicates running duration (eg '30m', '1.5h', 24h')
+Tag Value: Indicates running duration (eg '30m', '1.5h', '24h')
 
 Schedule this Lambda function to run at regular intervals (eg every 5 minutes)
 
