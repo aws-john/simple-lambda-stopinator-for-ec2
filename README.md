@@ -6,6 +6,8 @@ They are "Simple" because all code is in one text file, so it is easy to paste i
 
 There are multiple stopinators available in this repository.
 
+---
+
 ## Stopinator Type 1: Auto-Stop
 
 Run this AWS Lambda function on a **schedule** to auto-stop EC2 instances at night. A schedule can be specified via Amazon CloudWatch Events.
@@ -19,33 +21,18 @@ Add an `Auto-Stop` tag to an instance to change this behaviour, with a Value of:
 
 ---
 
-## Stopinator Type 2: Stop instances after given duration
+## Stopinator Type 2: Stop/Terminate/Notify instances after given duration
 
-- Will Stop any running Amazon EC2 instance with a `Stop-After` tag
-- Will Terminate any running Amazon EC2 instance with a `Terminate-After` tag
-- The tag Value indicates running duration (eg `30m`, `24h`)
+Use this stopinator to stop/terminate instances after they have been running for a given duration.
 
-Schedule this Lambda function to run at regular intervals (eg every 5 minutes) to check the instances.
+It can also send reminder notifications to an Amazon SNS topic at various durations.
 
----
+**Tag Names** (in priority order):
+- 'Terminate-After': Terminate instance
+- 'Stop-After': Stop instance
+- 'Notify-After': Send SNS notification if still running
+  (For multiple notifications, use 'Notify-After1', 'Notify-After2', etc)
 
-## Stopinator Type 3: The Ultimate Stopinator!
+**Tag Value:** Indicates running duration (eg '30m', '1.5h', 24h')
 
-This AWS Lambda function will **start and stop instances at given times and durations**.
-
-It can also **notify** about instances left running.
-
-Add a tag to instances:
-
-- `sls-stop-after`: Stop instance after given duration
-- `sls-terminate-after`: Terminate instance after given duration
-- `sls-notify-after`: Notify about running instance after given duration
-- `sls-last-checked`: Used by SLS to track previous notification times (internal use only)
-
-- `sls-start-at`: The time of day to start an instance
-- `sls-stop-at`: The time of day to stop an instance
-- `sls-terminate-at`: The time of day to terminate an instance
-
-Schedule this Lambda function to run at regular intervals (eg every 5 minutes)
-
-(Still a work-in-progress)
+Schedule this Lambda function to run at regular intervals (eg every 5 minutes) using Amazon CloudWatch Events.
