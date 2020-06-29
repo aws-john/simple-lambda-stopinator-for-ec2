@@ -1,6 +1,6 @@
-# Simple Lambda Stopinator: Start/Stop EC2 instances on schedule or duration
+# Simple Lambda Stopinator: Stop EC2 instances on schedule or duration
 
-Use these stopinators to start/stop Amazon EC2 instances based on rules defined in tags.
+Use these stopinators to stop/terminate Amazon EC2 instances based on rules defined in tags.
 
 They are "Simple" because all code is in one text file, so it is easy to paste into a Lambda function. Just add an IAM Role and you're up and running!
 
